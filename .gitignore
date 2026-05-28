@@ -1,0 +1,17 @@
+# Base de données locale (générée par l'application)
+tasks.db
+
+# Fichier JSON résiduel d'anciennes versions
+tasks.json
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Environnement virtuel
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
