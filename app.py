@@ -16,11 +16,16 @@ if st.button("Ajouter"):
 # Afficher les tâches
 st.subheader("Liste des tâches")
 for i, t in enumerate(st.session_state["tasks"]):
-    col1, col2 = st.columns([0.8, 0.2])
+    col1, col2, col3 = st.columns([0.7, 0.15, 0.15])
     with col1:
         st.write(("Terminé - " if t["done"] else "À faire - ") + t["task"])
     with col2:
-        if st.button("Marquer comme fait", key=f"done_{i}"):
+        if st.button("Fait", key=f"done_{i}"):
             st.session_state["tasks"][i]["done"] = True
+            st.rerun()
+    with col3:
+        if st.button("Supprimer", key=f"delete_{i}"):
+            st.session_state["tasks"].pop(i)
+            st.rerun()
 
 # Lancer l'application avec : streamlit run app.py
